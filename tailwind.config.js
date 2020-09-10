@@ -27,15 +27,18 @@ module.exports = {
       white: '#fff',
 
       gray: {
-        100: '#f7fafc',
-        200: '#edf2f7',
-        300: '#e2e8f0',
-        400: '#cbd5e0',
-        500: '#a0aec0',
-        600: '#718096',
-        700: '#4a5568',
-        800: '#2d3748',
-        900: '#1a202c',
+        'dark': '#181818',
+        'mild': '#1d1d1d',
+        'light': '#909096'
+        // 100: '#f7fafc',
+        // 200: '#edf2f7',
+        // 300: '#e2e8f0',
+        // 400: '#cbd5e0',
+        // 500: '#a0aec0',
+        // 600: '#718096',
+        // 700: '#4a5568',
+        // 800: '#2d3748',
+        // 900: '#1a202c',
       },
       red: {
         100: '#fff5f5',
@@ -82,6 +85,7 @@ module.exports = {
         900: '#22543d',
       },
       teal: {
+        'primary': '#08fdd8',
         100: '#e6fffa',
         200: '#b2f5ea',
         300: '#81e6d9',
@@ -146,6 +150,7 @@ module.exports = {
       '4': '1rem',
       '5': '1.25rem',
       '6': '1.5rem',
+      '7': '1.75rem',
       '8': '2rem',
       '10': '2.5rem',
       '12': '3rem',
@@ -251,6 +256,10 @@ module.exports = {
       default: '1',
     },
     fontFamily: {
+      logo: ['Megrim', 'cursive'],
+      heading: ['Syne', 'sans-serif'],
+      content: ['Nunito Sans', 'sans-serif'],
+      key: ['Anonymous Pro', 'monospace'],
       sans: [
         'system-ui',
         '-apple-system',
@@ -268,6 +277,7 @@ module.exports = {
       ],
       serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+
     },
     fontSize: {
       xs: '0.75rem',
