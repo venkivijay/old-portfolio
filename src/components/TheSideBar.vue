@@ -9,8 +9,9 @@
         to="/"
         exact
         id="logo"
-        class="text-teal-primary font-logo text-3xl sm:text-5xl leading-none select-none"
-      >VV</router-link>
+        class="text-teal font-logo text-3xl sm:text-5xl leading-none select-none"
+        >VV</router-link
+      >
       <button class="block sm:hidden focus:outline-none" @click="toggleMenu">
         <svg class="icon text-gray-light fill-current large">
           <use :xlink:href="displayIcon" />
@@ -20,21 +21,21 @@
     <!-- Actual navigation bar -->
     <nav
       class="flex-row sm:flex-col w-full sm:w-auto justify-around relative sm:static sm:flex"
-      :class="this.$store.state.isMenuOpen?'flex':'hidden'"
+      :class="$store.state.isMenuOpen ? 'flex' : 'hidden'"
     >
-      <router-link to="/" exact @click.native="toggleMenu">
+      <router-link to="/" exact @click="toggleMenu">
         <Icon name="Home" primaryIcon="home" />
       </router-link>
-      <router-link to="/works" @click.native="toggleMenu">
+      <router-link to="/works" @click="toggleMenu">
         <Icon name="Works" primaryIcon="works" />
       </router-link>
-      <router-link to="/skills" @click.native="toggleMenu">
+      <router-link to="/skills" @click="toggleMenu">
         <Icon name="Skills" primaryIcon="skills" />
       </router-link>
-      <router-link to="/about" @click.native="toggleMenu">
+      <router-link to="/about" @click="toggleMenu">
         <Icon name="About" primaryIcon="about" />
       </router-link>
-      <router-link to="/contact" @click.native="toggleMenu">
+      <router-link to="/contact" @click="toggleMenu">
         <Icon name="Contact" primaryIcon="contact" />
       </router-link>
     </nav>
@@ -55,9 +56,11 @@
     </div>
   </aside>
 </template>
+
 <script>
 import TheIconsSprite from "./TheIconsSprite";
 import Icon from "./Icon";
+
 export default {
   name: "TheSideBar",
   components: {
@@ -65,13 +68,13 @@ export default {
     Icon,
   },
   methods: {
-    toggleMenu: function () {
+    toggleMenu() {
       this.$store.commit("toggleMenu");
       this.showMobileNav = !this.showMobileNav;
     },
   },
   computed: {
-    displayIcon: function () {
+    displayIcon() {
       return this.$store.state.isMenuOpen ? "#menu-close" : "#menu";
     },
   },
@@ -87,10 +90,10 @@ nav > a {
   margin-top: 30px;
   padding: 3px;
   &:hover {
-    /deep/ .icon {
+    ::v-deep(.icon) {
       opacity: 0;
     }
-    /deep/ span {
+    ::v-deep(span) {
       opacity: 1;
     }
   }
@@ -102,15 +105,15 @@ nav > a {
 .large {
   @apply w-5 h-5;
 }
-@screen sm{
-  .large{
-  @apply w-6 h-6;
+@screen sm {
+  .large {
+    @apply w-6 h-6;
   }
 }
 .router-link-exact-active,
 .router-link-active {
-  /deep/ svg {
-    @apply text-teal-primary #{!important};
+  ::v-deep(svg) {
+    @apply text-teal #{!important};
   }
 }
 </style>

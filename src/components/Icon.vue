@@ -1,44 +1,40 @@
 <template>
-  <Fragment>
-    <span v-if="name" class="text-teal-primary absolute leading-none opacity-0">{{name}}</span>
-    <svg
-      class="icon text-gray-light fill-current"
-      :class="this.secondaryIcon?'small':'large'"
-      @mouseover="handleMouseOver"
-      @mouseleave="handleMouseLeave"
-    >
-      <use v-bind:xlink:href="displayIcon" />
-    </svg>
-  </Fragment>
+  <span v-if="name" class="text-teal absolute leading-none opacity-0">{{
+    name
+  }}</span>
+  <svg
+    class="icon text-gray-light fill-current"
+    :class="secondaryIcon ? 'small' : 'large'"
+    @mouseover="handleMouseOver"
+    @mouseleave="handleMouseLeave"
+  >
+    <use v-bind:xlink:href="displayIcon" />
+  </svg>
 </template>
 
 <script>
-import { Fragment } from "vue-fragment";
 export default {
   name: "Icon",
-  components: {
-    Fragment,
-  },
   props: {
     name: String,
     primaryIcon: String,
     secondaryIcon: String,
   },
-  data: function () {
+  data() {
     return {
       icon: this.primaryIcon,
     };
   },
   methods: {
-    handleMouseOver: function () {
+    handleMouseOver() {
       if (this.secondaryIcon) this.icon = this.secondaryIcon;
     },
-    handleMouseLeave: function () {
+    handleMouseLeave() {
       if (this.secondaryIcon) this.icon = this.primaryIcon;
     },
   },
   computed: {
-    displayIcon: function () {
+    displayIcon() {
       return "#" + this.icon;
     },
   },

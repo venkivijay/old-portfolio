@@ -1,17 +1,15 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore, createLogger } from "vuex";
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default createStore({
   state: {
-    isMenuOpen: false
+    isMenuOpen: false,
   },
   mutations: {
     toggleMenu(state) {
-      state.isMenuOpen = !state.isMenuOpen
-    }
+      state.isMenuOpen = !state.isMenuOpen;
+    },
   },
   actions: {},
-  modules: {}
-})
+  modules: {},
+  plugins: process.env.NODE_ENV !== "production" ? [createLogger()] : [],
+});
